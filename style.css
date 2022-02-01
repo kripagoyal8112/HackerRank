@@ -1,0 +1,612 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.container{
+	min-height: fit-content;
+	width: 100vw;
+	display: flex;
+	align-items: center;
+	justify-content:flex-start;
+	flex-direction: column;
+	background-color: lightgrey;
+	overflow: hidden;
+}
+.second{
+	min-height: 100vh;
+	width: 100vw;
+	display: flex;
+	align-items: center;
+	justify-content:flex-start;
+	flex-direction: column;
+	overflow: hidden;
+}
+/* header*/
+#header{
+	position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100vw;
+	height: auto;
+	background-color:transparent;
+}
+#header .header{
+	min-height: 8vh;
+	background-color: rgba(32, 30, 30, 0.24);
+	transition: 0.3s ease background-color;
+}
+#header .navbar{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
+	max-width: 1300px;
+	padding: 0 10px;
+}
+#header .nav-list ul{
+	list-style: none;
+	position: absolute;
+	background-color: rgb(31, 30, 30);
+	width: 100vw;
+	height: 100vh;
+	left: 100%;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	z-index: 1;
+	overflow: hidden;
+	transition: 0.5s ease left;
+}
+#header .nav-list ul.active{
+	left: 0%;
+}
+#header .nav-list ul a{
+	font-size: 2.5rem;
+	font-weight: 500;
+	letter-spacing: 0.2rem;
+	text-decoration: none;
+	color: white;
+	text-transform: uppercase;
+	padding: 20px;
+	display: block;
+}
+#header.nav-list ul a::after{
+	content: attr(data-after);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%) scale(0);
+	color: rgba(240, 248, 255, 0.021);
+	font-size: 13rem;
+	letter-spacing: 50px;
+	z-index: -1;
+	transition: 0.3s ease letter-spacing;
+}
+#header .nav-list ul li:hover a::after {
+		transform: translate(-50%, -50%) scale(1);
+		letter-spacing: initial;
+}
+#header .nav-list ul li:hover a {
+		color: crimson;
+}
+#header .hamburger {
+		height: 60px;
+		width: 60px;
+		display: inline-block;
+		border: 3px solid white;
+		border-radius: 50%;
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 100;
+		cursor: pointer;
+		transform: scale(0.8);
+		margin-right: 20px;
+	}
+	#header .hamburger:after {
+		position: absolute;
+		content: '';
+		height: 100%;
+		width: 100%;
+		border-radius: 50%;
+		border: 3px solid white;
+		animation: hamburger_puls 1s ease infinite;
+	}
+#header .hamburger .bar {
+		height: 2px;
+		width: 30px;
+		position: relative;
+		background-color: white;
+		z-index: -1;
+	}
+#header .hamburger .bar::after,
+	#header .hamburger .bar::before {
+		content: '';
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		left: 0;
+		background-color: white;
+		transition: 0.3s ease;
+		transition-property: top, bottom;
+	}
+	#header .hamburger .bar::after {
+		top: 8px;
+	}
+	#header .hamburger .bar::before {
+		bottom: 8px;
+	}
+	#header .hamburger.active .bar::before {
+		bottom: 0;
+	}
+	#header .hamburger.active .bar::after {
+		top: 0;
+	}
+.brand a{
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: 500;
+	font-size: 1.2rem;
+	color: white;
+}
+.brand a span{
+	color: seagreen;
+}
+.messages{
+	padding-right: 20px;
+}
+
+
+/*end of header*/
+/* dashboard */
+#dashboardsection{
+	overflow: hidden;
+}
+#dashboard{
+	font-weight: bolder;
+	font-size: 30px;
+	height: fit-content;
+	width: 100vw;
+	margin-bottom: 20px;
+	margin-top: 3.8rem;
+	padding: 10px;
+	background-color: white;
+}
+#heading{
+	font-weight: bolder;
+	font-size: 20px;
+	text-transform:capitalize;
+	height: 10vh;
+	width: 100vw;
+	margin-bottom: 10px;
+	padding: 10px;
+	margin-left: 75px;
+}
+.angular{
+	height: 30vh;
+	width: 80vw;
+	background-color: white;
+	border: transparent; solid 2px;
+	box-shadow: 5px 5px 10px 5px gray;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 30px;
+	letter-spacing: 1px;
+	padding: 20px;
+	cursor: pointer;
+}
+.angular h1{
+	font-weight: bolder;
+	font-size: 25px;
+	display: flex;
+	align-items: flex-start;
+	margin-bottom: 80px;
+	margin-left: 15px;
+}
+.angular .button{
+	text-decoration: none;
+	border: seagreen solid 2px;
+	width: 160px;
+	height: 40px;
+	text-align: center;
+	color: seagreen;
+	cursor: pointer;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	letter-spacing: 0.2rem;
+	margin-left: 15px;
+	transition: 0.3s ease;
+		transition-property: background-color, color;
+}
+.angular .button:hover{
+	background-color: seagreen;
+	color: white;
+}
+#standout{
+	height: 30vh;
+	width: 80vw;
+	background-color: black;
+	border: transparent solid 2px;
+	box-shadow: 5px 0px 10px 5px  gray;
+	display: flex;
+	flex-direction: column;
+	
+	letter-spacing: 1px;
+	padding: 10px;
+	cursor: pointer;
+	color: white;display: flex;
+}
+#standout h2{
+	margin-bottom: 10px;
+	margin-left: 15px;
+}
+#standout p{
+	margin-bottom: 10px;
+	margin-left: 15px;
+}
+#standout a{
+	text-decoration: none;
+	background-color: white;
+	width: 160px;
+	height: 40px;
+    text-align: center;
+	color: black;
+	cursor: pointer;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	letter-spacing: 0.2rem;
+	margin-left: 15px;
+}
+.icon{
+	text-decoration: none;
+	margin-left: 30px;
+	padding-left: 5px;
+	padding-right: 5px;
+	color: black;
+	font-size: 15px;
+    border: black solid 2px;
+    border-radius: 50%;
+ }
+ /*your skills*/
+ #yourskillssection{
+ 	height: 90vh;
+ 	overflow: hidden;
+ }
+#yourskillsheading{
+	margin-top: 30px;
+	font-weight: bolder;
+	font-size: 25px;
+    margin-left: -265px;
+}
+.box{
+	margin-top: 30px;
+	height: 30vh;
+	width: 80vw;
+	background-color: white;
+	border: transparent; solid 2px;
+	box-shadow: 5px 5px 10px 5px gray;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 30px;
+	letter-spacing: 1px;
+	padding: 20px;
+	cursor: pointer;
+}
+.box h5{
+	text-transform: uppercase;
+	color: gray;
+	font-size: 12px;
+	word-spacing: 7px;
+	letter-spacing: 2px;
+	padding-left: 20px;
+}
+.box h2{
+	text-transform: capitalize;
+	margin-top: 10px;
+	padding-left: 20px;
+}
+progress{
+	margin-top: 10px;
+	margin-left: 20px;
+}
+.progress{
+	margin-top: 10px;
+	margin-left: 20px;
+	font-weight: bolder;
+	word-spacing: 2px;
+}
+.box a{
+	margin-top: 20px;
+	margin-left: 20px;
+	height: 35px;
+	width: 200px;
+	background-color: seagreen;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	text-transform: capitalize;
+	word-spacing: 5px;
+	letter-spacing: 2px;
+	font-size: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	border-radius: 5px 5px 10px 5px gray;
+    transition: 0.3s ease;
+    transition-property: opacity;
+}
+.box a:hover{
+	opacity: 0.5;
+}
+
+/* end of your skills*/
+/* skills available*/
+#skillsavailable{
+	overflow: hidden;
+}
+#skillsavailableheading{
+	text-transform: capitalize;
+	font-size: 30px;
+	margin-bottom: 30px;
+	margin-left: -60px;
+}
+.tablediv{
+	background-color: white;
+	width: 80vw;
+	box-shadow: 5px 0px 10px 5px  gray;
+	margin-bottom: 10%;
+}
+ul{
+	list-style: none;
+	display: flex;
+	align-items: center;
+	margin: 5px auto;
+}
+.skilllist{
+	margin-left: 20px;
+	font-weight: bolder;
+	font-size: 15px;
+}
+.listimage{
+	filter: grayscale(1);
+}
+
+/* end of skills available*/
+
+/* tutorial*/
+#tutorialsection{
+    overflow: hidden;
+}
+#tutorialheading{
+	margin-left: -18rem;
+	font-size: 2.5rem;
+	margin-bottom: 2rem;
+}
+.tutorialbox{
+	height: 18vh;
+	width: 80vw;
+	background-color: white;
+	box-shadow: 5px 5px 10px 5px gray;
+	margin-bottom: 2.2rem;
+}
+.tutorialbox h5{
+	padding-top: 0.5rem;
+	margin-bottom: 0.8rem;
+	margin-left: 1rem;
+	color: silver;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	word-spacing: 0.2rem;
+}
+.tutorialbox h3{
+	margin-bottom: 0.5rem;
+	margin-left: 1rem;
+	text-transform: capitalize;
+	word-spacing: 0.2rem;
+}
+.tutorialbox p{
+	margin-left: 1rem;
+	margin-bottom: 0.4rem;
+	text-transform: capitalize;
+}
+.tutorialbox a{
+	margin-left: 1rem;
+    color: seagreen;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+/* end of tutorial*/
+/*footer*/
+#footersection{
+	height: 20vh;
+	width: 100vw;
+	background-color: white;
+	overflow: hidden;
+}
+#footersection #footerdiv{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	text-transform: capitalize;
+	margin-top: 1.5rem;
+	margin-left: 1.5rem;
+}
+#footersection a{
+	text-decoration: none;
+	color: skyblue;
+	margin-right: 1rem;
+	margin-bottom: 1rem;
+	padding-right: 1rem;
+	border-right: solid 2px silver;
+}
+/* end of footer*/
+/* media query for tablet*/
+@media only screen and (min-width: 768px){
+	/*dashboard*/
+     #dashboardsection .dashboardboxes{
+     	display: flex;
+     	align-items: center;
+     	justify-content: center;
+     	flex-direction: row;
+     	flex-wrap: wrap;
+     	overflow: hidden;
+     	
+     }
+     .angular{
+     	flex-basis: 45%;
+     	margin: 2.5%;
+     }
+     #standout{
+     	width: 60vw;
+     }
+     #heading{
+     	font-size: 30px;
+     	margin-top: 15px;
+     }
+	/*dashboard*/
+    /*your skills*/
+    .box{
+    	flex-basis: 45%;
+    	margin: 4.5%;
+    	margin-top: 3.5rem;
+
+    }
+    #yourskillsheading{
+    	font-size: 35px;
+    	margin-left: -23rem;
+    }
+    /* end of your skills*/
+    /* skiils available*/
+    #skillsavailableheading{
+    	margin-left: -17rem;
+    }
+    /* end skills available*/
+    /*tutorial*/
+    #tutorialdiv{
+    	display: flex;
+     	align-items: center;
+     	justify-content: center;
+     	flex-direction: row;
+     	flex-wrap: wrap;
+     	overflow: hidden;
+    }
+    .tutorialbox{
+    	flex-basis: 45%;
+    	margin: 2.5%;
+    	height: 30vh;
+    	margin-top: 3.5%;
+    }
+    #tutorialheading{
+    	font-size: 50px;
+    	margin-left: -60%;
+    }
+    /*end tutorial*/
+}
+/* end media query for tablet*/
+/* media query for desktop*/
+@media only screen and (min-width: 1200px){
+	/*header*/
+	#header .hamburger{
+		display: none;
+	}
+	#header .nav-list ul {
+		position: initial;
+		display: block;
+		height: auto;
+		width: fit-content;
+		background-color: transparent;
+	}
+	#header .nav-list ul li {
+			display: inline-block;
+		}
+		#header .nav-list ul li a {
+			font-size: 1.2rem;
+		}
+#header .nav-list ul a::after {
+			display: none;
+		}
+	/* end of header*/
+	/*dash board*/
+	#dashboardsection .dashboardboxes{
+     	display: flex;
+     	align-items: center;
+     	justify-content: center;
+     	flex-direction: row;
+     	flex-wrap: wrap;
+     	overflow: hidden;
+     	width: fit-content;
+     }
+     .angular{
+     	flex-basis: 25%;
+     	margin: 2.5%;
+     }
+     #standout{
+     	flex-basis: 25%;
+     	margin: 2.5%
+     }
+	/* end of dashboard*/
+	/*your skills*/
+	#yourskillsheading{
+		margin-left: -70%;
+		font-size: 50px;
+	}
+	.skillsbox{
+		display: flex;
+     	align-items: center;
+     	justify-content: center;
+     	flex-direction: row;
+     	flex-wrap: wrap;
+     	overflow: hidden;
+     	width: fit-content;
+     }
+     .box{
+     	flex-basis: 35%;
+     	margin: 2.5rem;
+     }
+	/* end of your skills*/
+	/* skill available*/
+	.firstdiv{
+		width: 40vw;
+		border-right: silver solid 3px;
+	}
+	.seconddiv{
+		width: 40vw;
+	}
+	.tablediv{
+		display: flex;
+     	align-items: center;
+     	justify-content: center;
+     	flex-direction: row;
+     	flex-wrap: wrap;
+     	overflow: hidden;
+     	width: fit-content;
+     	margin-bottom: 5%;
+	}
+	#skillsavailable{
+		height: fit-content;
+	}
+	#skillsavailableheading{
+		margin-left: -45%;
+		font-size: 3.5rem;
+	}
+	/*end of skill avilable*/
+	/*tutorial*/
+	#tutorialheading{
+		font-size: 3.5rem;
+		margin-left: -70%;
+	}
+	.tutorialbox{
+        flex-basis: 35%;
+        margin: 2.5rem;
+	}
+	/*end tutorial */
+}
+/* end of media query for desktop */
